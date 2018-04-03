@@ -1,6 +1,7 @@
 {
   "questions" : [
     {
+      "header": "1. Program Information",
       "id": 1.1,
       "title": "My program code is:",
       "type": "text"
@@ -11,6 +12,7 @@
       "type": "text"
     },
     {
+      "header": "2. Course Design",
       "id" : 2.1,
       "title": "I feel my previous learning (previous courses, program, high school) prepared me for the learning activities in this course.",
       "type": "radio",      
@@ -70,6 +72,7 @@
       ]
     },
     {
+      "header": "3. The Learning Experience",
       "id": 3.1,
       "title": "I felt that the learning environment was inclusive and respectful.",
       "type": "radio",
@@ -154,6 +157,7 @@
       ]
     },
     {
+      "header": "4. Educational Processes",
       "id": 4.1,
       "title": "I was able to receive help with this course outside class.",
       "type": "radio",
@@ -190,6 +194,7 @@
       ]
     },
     {
+      "header": "5. Overall Quality",
       "id": 5.1,
       "title": "At the end of the course, I will have met the course learning outcomes.",
       "type": "radio",
