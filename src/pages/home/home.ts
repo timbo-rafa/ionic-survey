@@ -14,4 +14,7 @@ export class HomePage {
     this.questions = this.afDatabase.list('questions').valueChanges()
   }
 
+  nop() {
+    
+  }
 }

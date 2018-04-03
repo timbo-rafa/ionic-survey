@@ -21,7 +21,7 @@
       
       <ion-list radio-group *ngIf="question.type == 'radio'">
         <ion-item *ngFor="let answer of question.answers">
-          <ion-icon name="checkmark"></ion-icon>{{ answer }}
+          <span>{{answer}}</span>
         </ion-item>
       </ion-list>
       
