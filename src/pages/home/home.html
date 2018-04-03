@@ -8,7 +8,20 @@
 
 <ion-content padding>
   The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="addSurvey()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-list>
+    <ion-item *ngFor="let question of questions | async" (click)="showOptions(question.id, question.title)" >
+      <h1>{{question.id}}. {{question.title}}</h1>
+      <ion-item *ngFor="let answer of question.answers">
+        {{ answer }}
+
+      </ion-item>
+      
+    </ion-item>
+  </ion-list>
 </ion-content>
