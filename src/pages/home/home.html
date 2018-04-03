@@ -1,13 +1,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Centennial Survey
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
   <ion-buttons end>
     <button ion-button icon-only (click)="addSurvey()">
       <ion-icon name="add"></ion-icon>
@@ -15,11 +14,11 @@
   </ion-buttons>
 
   <ion-list>
-    <ion-item *ngFor="let question of questions | async" (click)="showOptions(question.id, question.title)" >
+    <ion-item *ngFor="let question of questions | async">
+    <!-- (click)="showOptions(question.id, question.title)" -->
       <h1>{{question.id}}. {{question.title}}</h1>
       <ion-item *ngFor="let answer of question.answers">
-        {{ answer }}
-
+        <ion-icon name="checkmark"></ion-icon>{{ answer }}
       </ion-item>
       
     </ion-item>
