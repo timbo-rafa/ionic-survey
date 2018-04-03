@@ -16,10 +16,14 @@
   <ion-list>
     <ion-item *ngFor="let question of questions | async">
     <!-- (click)="showOptions(question.id, question.title)" -->
-      <h1>{{question.id}}. {{question.title}}</h1>
-      <ion-item *ngFor="let answer of question.answers">
-        <ion-icon name="checkmark"></ion-icon>{{ answer }}
-      </ion-item>
+      <h1>{{question.header}}</h1>
+      <h4>{{question.id}}. {{question.title}}</h4>
+      
+      <ion-list radio-group *ngIf="question.type == 'radio'">
+        <ion-item *ngFor="let answer of question.answers">
+          <ion-icon name="checkmark"></ion-icon>{{ answer }}
+        </ion-item>
+      </ion-list>
       
       <ion-item *ngIf="question.type == 'text'">
         <ion-input></ion-input>
