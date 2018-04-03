@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { Ionic2RatingModule } from 'ionic2-rating';
+
 
 // <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script> ???
 export const firebaseConfig = {
@@ -30,7 +32,8 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
