@@ -4,8 +4,6 @@ import { NavController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
-import { Ionic2RatingModule } from 'ionic2-rating';
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
