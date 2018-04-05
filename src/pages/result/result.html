@@ -1,19 +1,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <h1>Centennial Survey</h1>
+      <h1>Survey Statistics</h1>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <!--
-  <ion-buttons end>
-    <button ion-button icon-only (click)="nop()">
-    <ion-icon name="add"></ion-icon>
-    </button>
-  </ion-buttons>
-  -->
 
   <button ion-button (click)="toResult()">See Results</button>
   <form *ngIf="survey" (submit)="doSubmit($event)" [formGroup]="survey">

@@ -8,14 +8,12 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Question, Questions } from '../../../model/question'
 import { Submission } from '../../../model/submission'
 
-import { ResultPage } from '../result/result'
-
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-result',
+  templateUrl: 'result.html'
 })
-export class HomePage implements OnInit {
+export class ResultPage implements OnInit {
   questions: Observable<any[]>
   //submissions: Observable<any[]>
   submissions: AngularFireList<Submission>
