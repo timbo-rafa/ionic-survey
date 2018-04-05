@@ -1,30 +1,7 @@
 page-home {
-  /*
+    /*
   .radio > button {
     width: 0;
     }
     */
-
-  h1,h2,h3,h4,h5,h6,ion-list-header {
-    line-height: 1.1;
-    text-transform: uppercase;
-    color: #D4DF36;
-  }
-
-  background-color: #464647;
-  font-family: Anton,Helvetica,Helvetica Neue,Arial,serif;
-
-  ul {
-    padding: 0px;
-   
-    &.rating li {
-      padding: 5px 10px !important;
-      background: none;
-      color: #ffb400;
-   
-      ion-icon {
-        font-size: 30px;
-      }
-    }
-  }
 }
