@@ -1,5 +1,6 @@
 // http://ionicframework.com/docs/theming/
 //@import "centennial"
+//@import 'centennial.css';
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -22,8 +23,10 @@ page-home {
     h6,
     ion-list-header {
         line-height: 1.5;
-        text-transform: uppercase;
+        text-transform: capitalize;
+        margin: 0;
         white-space: normal;
+        text-align: justify;
         color: #44883c;
     }
     background-color: #464647;
@@ -33,7 +36,7 @@ page-home {
     Arial,
     serif;
     ul {
-        padding: 5px;
+        padding: 0px;
         &.rating li {
             padding: 5px 10px !important;
             background: none;
