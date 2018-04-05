@@ -42,6 +42,7 @@ export class HomePage implements OnInit {
   createItem(): FormGroup {
     return this.formBuilder.group({
       id: [''],
+      type: [''],
       rating: [''],
       answer: [''],
       title: ['']
@@ -60,8 +61,8 @@ export class HomePage implements OnInit {
   }
 
   doSubmit(event) {
-    console.log('Submit:', this.survey.value)
-    this.submissions.push(this.survey.value)
+    console.log('Submit:', this.survey.value.items)
+    this.submissions.push(this.survey.value.items)
     //this.sampleSubmit()
   }
 
