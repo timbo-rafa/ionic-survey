@@ -12,10 +12,26 @@
   <ion-list *ngFor="let programCode of programCodes | async">
     <span>programCode:{{programCode}}</span>
 
-    <ion-item *ngFor=" let id of ids">
+    <ion-list *ngFor=" let id of ids">
       
       <span>id:{{id}}</span>
-    </ion-item>
+      <ion-item *ngFor="let answer of statistics[programCode][id].answers">
+        <span>answer: {{answer}}</span>
+      </ion-item>
+      <div *ngIf="statistics[programCode][id].ratings">
+          <span>Ratings</span>
+
+          <div *ngFor="let rating of [1,2,3,4,5]">
+            <span>ngFor rating: {{rating}}</span>
+              <div *ngIf="statistics[programCode][id].ratings[rating]">
+                <span>
+                  amount of {{rating}} ratings: {{statistics[programCode][id].ratings[rating]}}
+                </span>
+              </div>
+          </div>
+          
+      </div>
+    </ion-list>
     <ion-item></ion-item>
 
   </ion-list>
