@@ -6,28 +6,47 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
+<div class="bg-dark">
   <ion-buttons end>
-    <button ion-button icon-only (click)="addSurvey()">
+    <button ion-button icon-only (click)="nop()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-buttons>
 
-  <ion-list>
-    <ion-item *ngFor="let question of questions | async">
-    <!-- (click)="showOptions(question.id, question.title)" -->
-      <h1>{{question.header}}</h1>
-      <h4>{{question.id}}. {{question.title}}</h4>
-      
-      <ion-list radio-group *ngIf="question.type == 'radio'">
-        <ion-item *ngFor="let answer of question.answers">
-          <span>{{answer}}</span>
-        </ion-item>
-      </ion-list>
-      
-      <ion-item *ngIf="question.type == 'text'">
-        <ion-input></ion-input>
+
+  <form  *ngIf="survey" (submit)="doSubmit($event)" [formGroup]="survey">
+    <ion-list class="bg-dark">
+      <div formArrayName="items">
+      <ion-item 
+      *ngFor="let question of questions | async ; let i = index;">
+       <div [formGroupName]="i">
+          <!-- (click)="showOptions(question.id, question.title)" -->
+          <ion-list-header>{{question.header}}</ion-list-header>
+          <h4>{{question.id}}. {{question.title}}</h4>
+          
+          <!-- <ion-input [value]="question.id" hidden="true"></ion-input> -->
+
+          <rating *ngIf="question.type == 'radio'"
+          formControlName="rating" 
+          readOnly="false"
+          max="5" 
+          emptyStarIconName="star-outline"
+          halfStarIconName="star-half" 
+          starIconName="star" 
+          nullable="false" 
+          (ngModelChange)="onStarChange($event)"> </rating>
+          
+          
+          <ion-item *ngIf="question.type == 'text'">
+            <ion-input formControlName="answer"></ion-input>
+          </ion-item>
+          
+      </div>
       </ion-item>
-    </ion-item>
-  </ion-list>
+      </div>
+    </ion-list>
+    <button ion-button type="submit">Submit</button>
+  </form>
+</div>
 </ion-content>
