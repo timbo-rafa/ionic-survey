@@ -1,7 +1,10 @@
 
 export interface SubmissionItem {
-  id: number
-  answer: string
+  id: number,
+  type: string,
+  title: string,
+  rating?: number,
+  answer?: string
 }
 
 export interface Submission {
