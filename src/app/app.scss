@@ -21,8 +21,9 @@ page-home {
     h5,
     h6,
     ion-list-header {
-        line-height: 1.1;
+        line-height: 1.5;
         text-transform: uppercase;
+        white-space: normal;
         color: #D4DF36;
     }
     background-color: #464647;
@@ -32,13 +33,13 @@ page-home {
     Arial,
     serif;
     ul {
-        padding: 0px;
+        padding: 5px;
         &.rating li {
             padding: 5px 10px !important;
             background: none;
             color: #ffb400;
             ion-icon {
-                font-size: 30px;
+                font-size: 20px;
             }
         }
     }
