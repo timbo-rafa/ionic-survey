@@ -1,5 +1,5 @@
 
-export interface SubmissionItem {
+export interface QuestionAnswer {
   id: number,
   type: string,
   title: string,
@@ -8,5 +8,5 @@ export interface SubmissionItem {
 }
 
 export interface Submission {
-  [index: number]: SubmissionItem
+  [index: number]: QuestionAnswer
 }

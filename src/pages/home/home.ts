@@ -70,6 +70,7 @@ export class HomePage implements OnInit {
     console.log('starChange:', event, this.rating)
   }
 
+  /*
   sampleSubmit() {
     var submission: Submission = [
       {
@@ -160,6 +161,7 @@ export class HomePage implements OnInit {
 
     this.submissions.push(submission)
   }
+  */
 
   toResult() {
     this.navCtrl.push(ResultPage);
