@@ -15,3 +15,50 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ion-list-header {
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin: 0;
+    white-space: normal;
+    text-align: justify;
+    color: #44883c;
+//#D4DF36;
+}
+
+.list-header {
+    //color: blue;
+}
+
+ion-input {
+    //background-color: #eeeeee;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #464647;
+    font-family: Anton,
+    Helvetica,
+    Helvetica Neue,
+    Arial,
+    serif;
+    ul {
+        padding: 0px;
+        &.rating li {
+            padding: 5px 10px !important;
+            background: none;
+            color: #ffb400;// #d0e0b8;
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+    }
+}

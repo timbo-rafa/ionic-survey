@@ -1,52 +1,58 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Centennial Survey
+      <h1>Centennial Survey</h1>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding >
-<div class="bg-dark">
+<ion-content padding>
+  <!--
   <ion-buttons end>
     <button ion-button icon-only (click)="nop()">
-      <ion-icon name="add"></ion-icon>
+    <ion-icon name="add"></ion-icon>
     </button>
   </ion-buttons>
+  -->
+
+  <form *ngIf="survey" (submit)="doSubmit($event)" [formGroup]="survey">
+    <button ion-button type="submit">Submit</button>
+    <ion-list no-lines>
+    <div formArrayName="items">
+      <ion-item *ngFor="let question of questions | async ; let i = index;"
+      padding-bottom
+      >
+        <div [formGroupName]="i">
+        <!-- (click)="showOptions(question.id, question.title)" -->
+        
+        <ion-list-header *ngIf="!!question.header">
+        <h2>{{question.header}}</h2>
+        <hr>
+        </ion-list-header>
+
+        <p></p>
+        <h4>{{question.id}}. {{question.title}}</h4>
+
+        <rating *ngIf="question.type == 'radio'" formControlName="rating" readOnly="false" max="5"
+        emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+        nullable="false" (ngModelChange)="onStarChange($event)"> </rating>
 
 
-  <form  *ngIf="survey" (submit)="doSubmit($event)" [formGroup]="survey">
-    <ion-list class="bg-dark">
-      <div formArrayName="items">
-      <ion-item 
-      *ngFor="let question of questions | async ; let i = index;">
-       <div [formGroupName]="i">
-          <!-- (click)="showOptions(question.id, question.title)" -->
-          <ion-list-header>{{question.header}}</ion-list-header>
-          <h4>{{question.id}}. {{question.title}}</h4>
-          
-          <!-- <ion-input [value]="question.id" hidden="true"></ion-input> -->
+        
+        <ion-item *ngIf="question.type == 'text'">
+        <ion-input type="text" formControlName="answer"></ion-input>
+        </ion-item>
 
-          <rating *ngIf="question.type == 'radio'"
-          formControlName="rating" 
-          readOnly="false"
-          max="5" 
-          emptyStarIconName="star-outline"
-          halfStarIconName="star-half" 
-          starIconName="star" 
-          nullable="false" 
-          (ngModelChange)="onStarChange($event)"> </rating>
-          
-          
-          <ion-item *ngIf="question.type == 'text'">
-            <ion-input formControlName="answer"></ion-input>
+        <ion-item hidden>
+            <ion-input readonly value="{{question.id}}" formControlName="id"></ion-input>
           </ion-item>
-          
+          <ion-item hidden>
+            <ion-input readonly value="{{question.title}}" formControlName="title"></ion-input>
+          </ion-item>
       </div>
       </ion-item>
-      </div>
+    </div>
     </ion-list>
-    <button ion-button type="submit">Submit</button>
+    
   </form>
-</div>
 </ion-content>
