@@ -96,6 +96,18 @@ export class ResultPage implements OnInit {
     return stats
   }
 
+  average(ratings) {
+    var r1 = ratings[1] ? ratings[1] : 0
+    var r2 = ratings[2] ? ratings[2] : 0
+    var r3 = ratings[3] ? ratings[3] : 0
+    var r4 = ratings[4] ? ratings[4] : 0
+    var r5 = ratings[5] ? ratings[5] : 0
+    var total = r1 + r2 + r3 + r4 + r5
+
+    ratings.average = (1 * r1 + 2 * r2 + 3 * r3 + 4 * r4 + 5 * r5 ) / total
+    return ratings.average
+  }
+
   createItem(): FormGroup {
     return this.formBuilder.group({
       id: [''],
