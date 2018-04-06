@@ -18,7 +18,7 @@ export class ResultPage implements OnInit {
   //submissions: Observable<any[]>
   submissions: AngularFireList<Submission>
   survey: FormGroup
-  rating: any
+  //rating: any
   statistics: any
   programCodes: Observable<any>
   ids: any[]
@@ -59,7 +59,10 @@ export class ResultPage implements OnInit {
       var programCode = submission[0].answer
       var answerArray = submission as QuestionAnswer[]
 
-      if (!stats[programCode]) stats[programCode] = {}
+      if (!stats[programCode]) {
+        stats[programCode] = {}
+        stats[programCode].show = true
+      }
       answerArray.forEach((answer: QuestionAnswer) => {
         //console.log('answer:', answer)
 
@@ -120,10 +123,14 @@ export class ResultPage implements OnInit {
   }
 
   onStarChange(event) {
-    console.log('starChange:', event, this.rating)
+    console.log('starChange:', event)
   }
 
   toResult() {
     this.navCtrl.push(ResultPage);
+  }
+
+  collapse(programCode) {
+    this.statistics[programCode].show = !this.statistics[programCode].show
   }
 }

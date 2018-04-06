@@ -10,28 +10,41 @@
 
 
   <ion-list *ngFor="let programCode of programCodes | async">
-    <span>programCode:{{programCode}}</span>
-
-    <ion-list *ngFor=" let id of ids">
-      
-      <span>id:{{id}}</span>
-      <ion-item *ngFor="let answer of statistics[programCode][id].answers">
-        <span>answer: {{answer}}</span>
-      </ion-item>
-      <div *ngIf="statistics[programCode][id].ratings">
-          <span>Ratings</span>
-
-          <div *ngFor="let rating of [1,2,3,4,5]">
-            <span>ngFor rating: {{rating}}</span>
-              <div *ngIf="statistics[programCode][id].ratings[rating]">
-                <span>
-                  amount of {{rating}} ratings: {{statistics[programCode][id].ratings[rating]}}
-                </span>
-              </div>
-          </div>
+    <h2 (click)="collapse(programCode)">Program {{programCode}}</h2>
+    <div *ngIf="statistics[programCode].show" (click)="collapse(programCode)">
+      <ion-list *ngFor=" let id of ids">
+        <div *ngIf="id != 1.1">
+          <h4>{{id}}. {{statistics[programCode][id].title}}</h4>
           
-      </div>
-    </ion-list>
+          <!--
+          <span>id:{{id}}</span>
+          <span>title:{{statistics[programCode][id].title}}</span>
+          -->
+          <ion-item *ngFor="let answer of statistics[programCode][id].answers">
+            <p>{{answer}}</p>
+          </ion-item>
+          <div *ngIf="statistics[programCode][id].ratings">
+              <span>Ratings</span>
+
+              <div *ngFor="let rating of [1,2,3,4,5]">
+                <!-- <span>ngFor rating: {{rating}}</span> -->
+                  <div *ngIf="statistics[programCode][id].ratings[rating]">
+                    <span>
+                      amount of {{rating}} ratings: {{statistics[programCode][id].ratings[rating]}}
+                    </span>
+
+                    <rating readOnly="true" max="5" value="4"
+                    
+                    emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+                    (ngModelChange)="onStarChange($event)"> </rating>
+                    
+                  </div>
+              </div>
+              
+          </div>
+        </div>
+      </ion-list>
+    </div>
     <ion-item></ion-item>
 
   </ion-list>
