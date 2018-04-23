@@ -21,7 +21,6 @@ export class HomePage implements OnInit {
   submissions: AngularFireList<Submission>
   survey: FormGroup
   rating: any
-  ratingNumbers = [ 1,2,3,4,5]
 
   constructor(public navCtrl: NavController,
       private afDatabase: AngularFireDatabase,
@@ -69,6 +68,7 @@ export class HomePage implements OnInit {
 
   onStarChange(event) {
     console.log('starChange:', event, this.rating)
+    this.rating = 1
   }
 
   toResult() {

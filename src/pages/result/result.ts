@@ -92,6 +92,8 @@ export class ResultPage implements OnInit {
     console.log('crunch.stats', stats)
     this.statistics = stats
 
+
+
     this.programCodes = Observable.of( Object.keys(stats))
     return stats
   }

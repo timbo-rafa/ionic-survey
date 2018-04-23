@@ -26,7 +26,7 @@
         <div [formGroupName]="i">
         <!-- (click)="showOptions(question.id, question.title)" -->
         
-        <ion-list-header *ngIf="!!question.header">
+        <ion-list-header *ngIf="!!question.header" no-padding>
         <h2>{{question.header}}</h2>
         <hr>
         </ion-list-header>
