@@ -28,6 +28,7 @@ ion-list-header {
     white-space: normal;
     text-align: justify;
     color: #44883c;
+    //background-color: lightgray;
 //#D4DF36;
 }
 
@@ -59,5 +60,22 @@ body {
                 font-size: 30px;
             }
         }
+    }
+
+    #rounded {
+        width: 100%;
+        //height: 100px;
+        //background-color: lightgray;
+        border: 2px solid lightgray;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        //margin-bottom: 10px;  
+    }
+
+    #container {
+        //width: 300px; 
+        margin-left:auto; 
+        margin-right: auto; 
     }
 }
