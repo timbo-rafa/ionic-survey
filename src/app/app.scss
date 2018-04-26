@@ -138,3 +138,14 @@ button.button:hover {
     color: $button-text-hover;
     background-color: $button-background-hover !important;
 }
+
+ion-spinner {
+    //top: 50%;
+    //left: 50%;
+    //position: fixed;
+    margin: 200px 0px;
+    width: 100%;
+    height: 100px;
+    stroke: $dark-green;
+    fill: $light-green;
+}

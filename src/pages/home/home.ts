@@ -21,10 +21,12 @@ export class HomePage implements OnInit {
   submissions: AngularFireList<Submission>
   survey: FormGroup
   rating: any
+  loading: boolean
 
   constructor(public navCtrl: NavController,
       private afDatabase: AngularFireDatabase,
       private formBuilder: FormBuilder) {
+    this.loading = true
     this.questions = this.afDatabase.list('questions').valueChanges()
     this.submissions = this.afDatabase.list('submissions')
     var formArray : FormArray = new FormArray([])
@@ -33,6 +35,10 @@ export class HomePage implements OnInit {
       //rating: [''],
       //answer: [''],
       items: this.formBuilder.array(formArray.controls)
+    })
+
+    this.questions.subscribe(_ => {
+      this.loading = false
     })
   }
 
