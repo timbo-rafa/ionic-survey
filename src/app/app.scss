@@ -15,6 +15,22 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+$light-green: #d4df38;
+$dark-green: #44883c;
+$gray: #464646;
+$light-gray: lightgray;
+
+$star: #ffb400;
+$primary-title: white;
+$secondary-title: $dark-green;
+$title-background: $gray; 
+$text-box: white;
+
+$button-text: $light-green;
+$button-text-hover: $dark-green;
+$button-background: $gray;
+$button-background-hover: $gray;
+
 h1,
 h2,
 h3,
@@ -27,8 +43,7 @@ ion-list-header {
     margin: 0;
     white-space: normal;
     text-align: justify;
-    color: #d4df38;
-    color: #44883c;
+    color: $secondary-title;
 //#D4DF36;
 }
 
@@ -37,15 +52,15 @@ h4,
 h5,
 h6,
 ion-list-header {
-    color: #44883c;
+    color: $secondary-title;
 }
 
 ion-title, ion-header.header#header,
 div.toolbar-background.toolbar-background-md,
 button.bar-button-default-md,
 h1, h2#title {
-    color: white;
-    background-color: #464646;
+    color: $primary-title;
+    background-color: $title-background;
 }
 
 h2#title {
@@ -55,7 +70,7 @@ h2#title {
 }
 
 h4#question {
-    color: #44883c;
+    color: $secondary-title;
     font-weight: bold;
 }
 
@@ -88,7 +103,7 @@ ul {
     &.rating li {
         padding: 5px 10px !important;
         background: none;
-        color: #ffb400;// #d0e0b8;
+        color: $star;// #d0e0b8;
         ion-icon {
             font-size: 30px;
         }
@@ -99,7 +114,7 @@ ul {
     width: 100%;
     //height: 100px;
     //background-color: lightgray;
-    border: 2px solid white;
+    border: 2px solid $text-box;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 10px;
@@ -114,11 +129,11 @@ ul {
 
 button.button {
     font-weight: bold;
-    color: #d4df38;
-    background-color: #464646;
+    color: $button-text;
+    background-color: $button-background;
 }
 
 button.button:hover {
-    color: #44883c;
-    background-color: #464646 !important;
+    color: $button-text-hover;
+    background-color: $button-background-hover !important;
 }
