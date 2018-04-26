@@ -5,7 +5,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 //var sampleSubmission = require('json!./sample-submission.json')
-import { Question, Questions } from '../../../model/question'
+//import { Question, Questions } from '../../../model/question'
 import { Submission } from '../../../model/submission'
 
 import { ResultPage } from '../result/result'

@@ -106,20 +106,9 @@ export class ResultPage implements OnInit {
       this.ids.forEach(id => {
         console.log('crunchAverages', this.statistics[programCode][id])
         this.calculateAverage(this.statistics[programCode][id].ratings)
-        //this.statistics[programCode][id].ratings.average = average
       })
     })
 
-    /*
-    results.forEach(submission => {
-      var programCode = submission[0].answer
-      var answerArray = submission as QuestionAnswer[]
-      answerArray.forEach((answer: QuestionAnswer) => {
-        var average = this.calculateAverage(this.statistics[programCode][answer.id].ratings)
-        this.statistics[programCode][answer.id].ratings.average = average
-      })
-    })
-    */
   }
 
   calculateAverage(ratings) {
@@ -132,6 +121,27 @@ export class ResultPage implements OnInit {
     var total = r1 + r2 + r3 + r4 + r5
 
     ratings.average = (1 * r1 + 2 * r2 + 3 * r3 + 4 * r4 + 5 * r5 ) / total
+    ratings.average = Math.round(ratings.average * 1000) / 1000
+    ratings.roundedAverage = this.roundAverage(ratings.average)
+  }
+
+  roundAverage(average: number) {
+    if (average < 0) {
+      console.log('roundAverage warning: average < 0')
+      return 0
+    }
+    if (average < 0.25) return 0.00
+    if (average < 0.75) return 0.50
+    if (average < 1.25) return 1.00
+    if (average < 1.75) return 1.50
+    if (average < 2.25) return 2.00
+    if (average < 2.75) return 2.50
+    if (average < 3.25) return 3.00
+    if (average < 3.75) return 3.50
+    if (average < 4.25) return 4.00
+    if (average < 4.75) return 4.50
+    if (average > 5.00) console.log('roundAverage warning: average > 5')
+    return 5
   }
 
   createItem(): FormGroup {
