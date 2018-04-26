@@ -128,10 +128,12 @@ ul {
 }
 
 button.button {
-    width: 100%;
+    width: 98%;
     font-weight: bold;
     color: $button-text;
     background-color: $button-background;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 button.button:hover {
