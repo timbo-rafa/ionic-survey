@@ -8,6 +8,8 @@
 
 <ion-content padding-top id="body">
 
+  <ion-spinner id="spinner" [hidden]="!loading"></ion-spinner>
+
   <ion-list *ngFor="let programCode of programCodes | async">
     <h2 id="title" (click)="collapse(programCode)">Program {{programCode}}</h2>
     <div *ngIf="statistics[programCode].show" (click)="collapse(programCode)">

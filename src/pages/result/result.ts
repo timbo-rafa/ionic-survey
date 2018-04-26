@@ -22,11 +22,13 @@ export class ResultPage implements OnInit {
   statistics: any
   programCodes: Observable<any>
   ids: any[]
+  loading: boolean
 
   constructor(public navCtrl: NavController,
       private afDatabase: AngularFireDatabase,
       private formBuilder: FormBuilder) {
-    this.questions = this.afDatabase.list('questions').valueChanges()
+    this.loading = true
+    //this.questions = this.afDatabase.list('questions').valueChanges()
     this.submissions = this.afDatabase.list('submissions')
     var formArray : FormArray = new FormArray([])
     Array.from(Array(20).keys()).forEach(e => formArray.push(this.createItem()))
@@ -45,6 +47,7 @@ export class ResultPage implements OnInit {
   crunchData() {
     this.submissions.valueChanges().subscribe(
       (results:Submission[]) => {
+        this.loading = false
         console.log('crunchData.results', results)
         this.crunch(results)
       }
