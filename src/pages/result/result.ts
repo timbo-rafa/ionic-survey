@@ -5,7 +5,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 //var sampleSubmission = require('json!./sample-submission.json')
-import { Question, Questions } from '../../../model/question'
+//import { Question, Questions } from '../../../model/question'
 import { Submission, QuestionAnswer } from '../../../model/submission'
 
 
@@ -81,24 +81,49 @@ export class ResultPage implements OnInit {
           questionStats.answers.push(answer.answer)
         }
 
+        // average(statistics[programCode][id].ratings
         if (answer.type == 'radio') {
           if (!questionStats.ratings) questionStats.ratings = {}
           if (!questionStats.ratings[answer.rating]) questionStats.ratings[answer.rating] = 0
           questionStats.ratings[answer.rating] += 1
         }
+
       })
     })
 
-    console.log('crunch.stats', stats)
+    console.log('crunch.stats before', stats)
     this.statistics = stats
-
-
+    this.crunchAverages(results)
+    console.log('crunch.stats', stats)
 
     this.programCodes = Observable.of( Object.keys(stats))
     return stats
   }
 
-  average(ratings) {
+  crunchAverages(results: Submission[]) {
+
+    Object.keys(this.statistics).forEach(programCode => {
+      this.ids.forEach(id => {
+        console.log('crunchAverages', this.statistics[programCode][id])
+        this.calculateAverage(this.statistics[programCode][id].ratings)
+        //this.statistics[programCode][id].ratings.average = average
+      })
+    })
+
+    /*
+    results.forEach(submission => {
+      var programCode = submission[0].answer
+      var answerArray = submission as QuestionAnswer[]
+      answerArray.forEach((answer: QuestionAnswer) => {
+        var average = this.calculateAverage(this.statistics[programCode][answer.id].ratings)
+        this.statistics[programCode][answer.id].ratings.average = average
+      })
+    })
+    */
+  }
+
+  calculateAverage(ratings) {
+    if (!ratings) return
     var r1 = ratings[1] ? ratings[1] : 0
     var r2 = ratings[2] ? ratings[2] : 0
     var r3 = ratings[3] ? ratings[3] : 0
@@ -107,7 +132,6 @@ export class ResultPage implements OnInit {
     var total = r1 + r2 + r3 + r4 + r5
 
     ratings.average = (1 * r1 + 2 * r2 + 3 * r3 + 4 * r4 + 5 * r5 ) / total
-    return ratings.average
   }
 
   createItem(): FormGroup {

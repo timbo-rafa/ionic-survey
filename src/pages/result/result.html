@@ -8,7 +8,6 @@
 
 <ion-content padding>
 
-
   <ion-list *ngFor="let programCode of programCodes | async">
     <h2 (click)="collapse(programCode)">Program {{programCode}}</h2>
     <div *ngIf="statistics[programCode].show" (click)="collapse(programCode)">
@@ -26,21 +25,20 @@
           <div *ngIf="statistics[programCode][id].ratings">
               <span>Ratings</span>
 
-              <span>average: {{ average(statistics[programCode][id].ratings) }}</span>
+              <!-- <span>average: {{ average(statistics[programCode][id].ratings) }}</span> -->
               <span>averageVariable: {{ statistics[programCode][id].ratings.average }}</span>
               <div *ngFor="let rating of [1,2,3,4,5]">
-                <span>average: {{ average(statistics[programCode][id].ratings) }}</span>
+                <!-- <span>average: {{ average(statistics[programCode][id].ratings) }}</span> -->
                 <span>ngFor rating: {{rating}}. average: {{ statistics[programCode][id].ratings.average }}</span>
                   <div *ngIf="statistics[programCode][id].ratings[rating]">
                     <span>
                       amount of {{rating}} ratings: {{statistics[programCode][id].ratings[rating]}}
                     </span>
 
-                    <rating readOnly="true" max="5" [(ngModel)]="statistics[programCode][id].ratings[rating].average"
-                    
+                    <rating readOnly="true" max="5" [(ngModel)]="statistics[programCode][id].ratings.average"
                     emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
                     > </rating>
-                    <span>average: {{ average(statistics[programCode][id].ratings) }}</span>
+                    <!-- <span>average: {{ average(statistics[programCode][id].ratings) }}</span> -->
                   </div>
               </div>
               
