@@ -22,21 +22,23 @@
           <ion-item *ngFor="let answer of statistics[programCode][id].answers">
             <p>{{answer}}</p>
           </ion-item>
-          <div *ngIf="statistics[programCode][id].ratings">
-              <span>Ratings</span>
+          <div *ngIf="statistics[programCode][id].ratings" id="ratingsDiv">
 
-              <span>averageVariable: {{ statistics[programCode][id].ratings.average }}</span>
+              <span id="average">{{ statistics[programCode][id].ratings.average }}</span>
+              <rating readOnly="true" max="5" [(ngModel)]="statistics[programCode][id].ratings.roundedAverage"
+                emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+              > </rating>
+              <!--
               <div *ngFor="let rating of [1,2,3,4,5]">
-                <!-- <span>ngFor rating: {{rating}}. average: {{ statistics[programCode][id].ratings.average }}</span> -->
+                <span>ngFor rating: {{rating}}. average: {{ statistics[programCode][id].ratings.average }}</span>
                   <div *ngIf="statistics[programCode][id].ratings[rating]">
+                    
                     <span>
                       amount of {{rating}} ratings: {{statistics[programCode][id].ratings[rating]}}
                     </span>
                   </div>
               </div>
-              <rating readOnly="true" max="5" [(ngModel)]="statistics[programCode][id].ratings.roundedAverage"
-                emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
-              > </rating>
+              -->
               
           </div>
         </div>
