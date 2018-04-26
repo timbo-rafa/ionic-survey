@@ -1,19 +1,19 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar id="title">
     <ion-title>
-      <h1>Survey Statistics</h1>
+      <h1 id="title">Survey Statistics</h1>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding-top id="body">
 
   <ion-list *ngFor="let programCode of programCodes | async">
-    <h2 (click)="collapse(programCode)">Program {{programCode}}</h2>
+    <h2 id="title" (click)="collapse(programCode)">Program {{programCode}}</h2>
     <div *ngIf="statistics[programCode].show" (click)="collapse(programCode)">
-      <ion-list *ngFor=" let id of ids">
+      <ion-list *ngFor=" let id of ids" id="body">
         <div *ngIf="id != 1.1">
-          <h4>{{id}}. {{statistics[programCode][id].title}}</h4>
+          <h4 id="question">{{id}}. {{statistics[programCode][id].title}}</h4>
           
           <!--
           <span>id:{{id}}</span>

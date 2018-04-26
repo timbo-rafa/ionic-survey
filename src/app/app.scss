@@ -27,9 +27,36 @@ ion-list-header {
     margin: 0;
     white-space: normal;
     text-align: justify;
+    color: #d4df38;
     color: #44883c;
-    //background-color: lightgray;
 //#D4DF36;
+}
+
+h3,
+h4,
+h5,
+h6,
+ion-list-header {
+    color: #44883c;
+}
+
+ion-title, ion-header.header#header,
+div.toolbar-background.toolbar-background-md,
+button.bar-button-default-md,
+h1, h2#title {
+    color: white;
+    background-color: #464646;
+}
+
+h2#title {
+    font-weight: bold;
+    padding: 5px 0px;
+    margin-bottom: 13px !important;
+}
+
+h4#question {
+    color: #44883c;
+    font-weight: bold;
 }
 
 .list-header {
@@ -43,39 +70,55 @@ ion-input {
     border-radius: 5px;
 }
 
-body {
-    background-color: #464647;
+#body {
+    background-color: lightgray;
     font-family: Anton,
     Helvetica,
     Helvetica Neue,
     Arial,
     serif;
-    ul {
-        padding: 0px;
-        &.rating li {
-            padding: 5px 10px !important;
-            background: none;
-            color: #ffb400;// #d0e0b8;
-            ion-icon {
-                font-size: 30px;
-            }
+}
+
+ion-item.item-md {
+    background-color: lightgray;
+}
+
+ul {
+    padding: 0px;
+    &.rating li {
+        padding: 5px 10px !important;
+        background: none;
+        color: #ffb400;// #d0e0b8;
+        ion-icon {
+            font-size: 30px;
         }
     }
+}
 
-    #rounded {
-        width: 100%;
-        //height: 100px;
-        //background-color: lightgray;
-        border: 2px solid lightgray;
-        -moz-border-radius: 50px;
-        -webkit-border-radius: 50px;
-        border-radius: 10px;
-        //margin-bottom: 10px;  
-    }
+#rounded {
+    width: 100%;
+    //height: 100px;
+    //background-color: lightgray;
+    border: 2px solid white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    //margin-bottom: 10px;  
+}
 
-    #container {
-        //width: 300px; 
-        margin-left:auto; 
-        margin-right: auto; 
-    }
+#container {
+    //width: 300px; 
+    margin-left:auto; 
+    margin-right: auto; 
+}
+
+button.button {
+    font-weight: bold;
+    color: #d4df38;
+    background-color: #464646;
+}
+
+button.button:hover {
+    color: #44883c;
+    background-color: #464646 !important;
 }
